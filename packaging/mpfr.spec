@@ -66,6 +66,7 @@ make check %{?_smp_mflags}
 
 
 %files -n libmpfr
+%license COPYING.LESSER COPYING
 %defattr(-,root,root)
 %{_libdir}/libmpfr.so.4*
 
