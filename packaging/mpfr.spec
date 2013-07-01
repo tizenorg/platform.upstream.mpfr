@@ -8,6 +8,7 @@ Url:            http://www.mpfr.org/
 Group:          Development/Libraries/C and C++
 Source:         mpfr-%{version}.tar.bz2
 Source2:        baselibs.conf
+Source1001: 	mpfr.manifest
 BuildRequires:  gmp-devel
 
 %description
@@ -45,6 +46,7 @@ based on the GMP multiple-precision library.
 
 %prep
 %setup -q
+cp %{SOURCE1001} .
 
 %build
 %configure \
@@ -66,11 +68,13 @@ make check %{?_smp_mflags}
 
 
 %files -n libmpfr
+%manifest %{name}.manifest
 %license COPYING.LESSER COPYING
 %defattr(-,root,root)
 %{_libdir}/libmpfr.so.4*
 
 %files devel
+%manifest %{name}.manifest
 %defattr(-,root,root)
 %{_libdir}/libmpfr.a
 %{_libdir}/libmpfr.so
