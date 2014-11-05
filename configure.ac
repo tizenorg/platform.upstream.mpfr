@@ -1,7 +1,7 @@
 dnl Process this file with autoconf to produce a configure script.
 
 AC_COPYRIGHT([
-Copyright 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+Copyright 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013 Free Software Foundation, Inc.
 Contributed by the AriC and Caramel projects, INRIA.
 
 This file is part of the GNU MPFR Library.
@@ -23,7 +23,7 @@ http://www.gnu.org/licenses/ or write to the Free Software Foundation, Inc.,
 ])
 
 dnl Add check-news when it checks for more than 15 lines
-AC_INIT([MPFR],[3.1.1])
+AC_INIT([MPFR],[3.1.2])
 
 AM_INIT_AUTOMAKE([1.11 no-define dist-bzip2 dist-xz dist-zip])
 AM_MAINTAINER_MODE(enable)
@@ -320,6 +320,18 @@ AC_C_CONST
 AC_C_VOLATILE
 MPFR_CONFIGS
 
+# (Based on GMP 5.1)
+# clock_gettime is in librt on *-*-osf5.1 and on glibc < 2.17, so add -lrt to
+# TUNE_LIBS if needed (e.g. if clock_gettime is not already in the C library).
+# On linux (tested on x86_32, 2.6.26), clock_getres reports ns accuracy,
+# while in a quick test on osf, clock_getres said only 1 millisecond.
+old_LIBS="$LIBS"
+AC_SEARCH_LIBS(clock_gettime, rt, [
+  AC_DEFINE([HAVE_CLOCK_GETTIME],1,[Define to 1 if you have the `clock_gettime' function])])
+TUNE_LIBS="$LIBS"
+LIBS="$old_LIBS"
+AC_SUBST(TUNE_LIBS)
+
 dnl
 dnl Setup GMP detection
 dnl
@@ -516,26 +528,26 @@ fi
 dnl Remove also many MACROS (AC_DEFINE) which are unused by MPFR
 dnl and polluate (and slow down because libtool has to parse them) the build.
 if test -f confdefs.h; then
-  sed '/#define PACKAGE_/d' <confdefs.h >confdefs.tmp
-  sed '/#define HAVE_STRING/d' <confdefs.tmp >confdefs.h
-  sed '/#define HAVE_ALLOCA /d' <confdefs.h >confdefs.tmp
-  sed '/#define HAVE_DLFCN_H/d' <confdefs.tmp >confdefs.h
-  sed '/#define HAVE_MEM/d' <confdefs.h >confdefs.tmp
-  sed '/#define STDC_HEADERS/d' <confdefs.tmp >confdefs.h
-  sed '/#define HAVE_STRTOL/d' <confdefs.h >confdefs.tmp
-  sed '/#define HAVE_STDLIB_H/d' <confdefs.tmp >confdefs.h
-  sed '/#define HAVE_UNISTD_H/d' <confdefs.h >confdefs.tmp
-  sed '/#define HAVE_STDC_HEADERS/d' <confdefs.tmp >confdefs.h
-  sed '/#define HAVE_LONG_DOUBLE/d' <confdefs.h >confdefs.tmp
-  sed '/#define HAVE_SYS_STAT_H/d' <confdefs.tmp >confdefs.h
-  sed '/#define HAVE_SYS_TYPES_H/d' <confdefs.h >confdefs.tmp
-  sed '/#define PROTOTYPES/d' <confdefs.tmp >confdefs.h
-  sed '/#define __PROTOTYPES/d' <confdefs.h >confdefs.tmp
+  $SED '/#define PACKAGE_/d' <confdefs.h >confdefs.tmp
+  $SED '/#define HAVE_STRING/d' <confdefs.tmp >confdefs.h
+  $SED '/#define HAVE_ALLOCA /d' <confdefs.h >confdefs.tmp
+  $SED '/#define HAVE_DLFCN_H/d' <confdefs.tmp >confdefs.h
+  $SED '/#define HAVE_MEM/d' <confdefs.h >confdefs.tmp
+  $SED '/#define STDC_HEADERS/d' <confdefs.tmp >confdefs.h
+  $SED '/#define HAVE_STRTOL/d' <confdefs.h >confdefs.tmp
+  $SED '/#define HAVE_STDLIB_H/d' <confdefs.tmp >confdefs.h
+  $SED '/#define HAVE_UNISTD_H/d' <confdefs.h >confdefs.tmp
+  $SED '/#define HAVE_STDC_HEADERS/d' <confdefs.tmp >confdefs.h
+  $SED '/#define HAVE_LONG_DOUBLE/d' <confdefs.h >confdefs.tmp
+  $SED '/#define HAVE_SYS_STAT_H/d' <confdefs.tmp >confdefs.h
+  $SED '/#define HAVE_SYS_TYPES_H/d' <confdefs.h >confdefs.tmp
+  $SED '/#define PROTOTYPES/d' <confdefs.tmp >confdefs.h
+  $SED '/#define __PROTOTYPES/d' <confdefs.h >confdefs.tmp
 
   mv confdefs.tmp confdefs.h
 fi
 
-if grep -q -e '-dev$' $srcdir/VERSION; then
+if $EGREP -q -e '-dev$' $srcdir/VERSION; then
   AC_SUBST([DATAFILES])dnl
   DATAFILES=`echo \`$SED -n \
     's/^ *data_check *("\(data\/[[^"]]*\)".*/tests\/\1/p' \

@@ -3,7 +3,7 @@
  */
 
 /*
-Copyright 2010, 2011, 2012 Free Software Foundation, Inc.
+Copyright 2010, 2011, 2012, 2013 Free Software Foundation, Inc.
 Contributed by the AriC and Caramel projects, INRIA.
 
 This file is part of the GNU MPFR Library.
@@ -40,7 +40,7 @@ static void failure_test (void)
   mpfr_t x;
 
   mpfr_init2 (x, 128);
-  mpfr_set_str (x, "17", 0, GMP_RNDN);
+  mpfr_set_str (x, "17", 0, MPFR_RNDN);
   if (mpfr_cmp_ui (x, 17) != 0)
     printf ("\nFailure in mpfr_set_str! Probably an unmatched ABI!\n");
   mpfr_clear (x);

@@ -1,6 +1,6 @@
 /* mpfr_get_version -- MPFR version
 
-Copyright 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012 Free Software Foundation, Inc.
+Copyright 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013 Free Software Foundation, Inc.
 Contributed by the AriC and Caramel projects, INRIA.
 
 This file is part of the GNU MPFR Library.
@@ -25,5 +25,5 @@ http://www.gnu.org/licenses/ or write to the Free Software Foundation, Inc.,
 const char *
 mpfr_get_version (void)
 {
-  return "3.1.1";
+  return "3.1.2";
 }

@@ -1,11 +1,11 @@
 This is mpfr.info, produced by makeinfo version 4.13 from mpfr.texi.
 
 This manual documents how to install and use the Multiple Precision
-Floating-Point Reliable Library, version 3.1.1.
+Floating-Point Reliable Library, version 3.1.2.
 
    Copyright 1991, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000,
-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012
-Free Software Foundation, Inc.
+2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012,
+2013 Free Software Foundation, Inc.
 
    Permission is granted to copy, distribute and/or modify this
 document under the terms of the GNU Free Documentation License, Version
@@ -26,11 +26,11 @@ GNU MPFR
 ********
 
    This manual documents how to install and use the Multiple Precision
-Floating-Point Reliable Library, version 3.1.1.
+Floating-Point Reliable Library, version 3.1.2.
 
    Copyright 1991, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000,
-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012
-Free Software Foundation, Inc.
+2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012,
+2013 Free Software Foundation, Inc.
 
    Permission is granted to copy, distribute and/or modify this
 document under the terms of the GNU Free Documentation License, Version
@@ -275,8 +275,8 @@ MPFR). Problems are also mentioned in the FAQ
 `http://www.mpfr.org/faq.html'.
 
    Please report problems to the MPFR mailing-list `mpfr@inria.fr'.
-*Note Reporting Bugs::.  Some bug fixes are available on the MPFR 3.1.1
-web page `http://www.mpfr.org/mpfr-3.1.1/'.
+*Note Reporting Bugs::.  Some bug fixes are available on the MPFR 3.1.2
+web page `http://www.mpfr.org/mpfr-3.1.2/'.
 
 2.4 Getting the Latest Version of MPFR
 ======================================
@@ -291,7 +291,7 @@ File: mpfr.info,  Node: Reporting Bugs,  Next: MPFR Basics,  Prev: Installing MP
 ****************
 
 If you think you have found a bug in the MPFR library, first have a look
-on the MPFR 3.1.1 web page `http://www.mpfr.org/mpfr-3.1.1/' and the
+on the MPFR 3.1.2 web page `http://www.mpfr.org/mpfr-3.1.2/' and the
 FAQ `http://www.mpfr.org/faq.html': perhaps this bug is already known,
 in which case you may find there a workaround for it.  You might also
 look in the archives of the MPFR mailing-list:
@@ -4215,48 +4215,48 @@ Function and Type Index
 
 
 Tag Table:
-Node: Top886
-Node: Copying2231
-Node: Introduction to MPFR3991
-Node: Installing MPFR6080
-Node: Reporting Bugs10902
-Node: MPFR Basics12831
-Node: Headers and Libraries13147
-Node: Nomenclature and Types16131
-Node: MPFR Variable Conventions18135
-Node: Rounding Modes19665
-Ref: ternary value20762
-Node: Floating-Point Values on Special Numbers22715
-Node: Exceptions25691
-Node: Memory Handling28843
-Node: MPFR Interface29975
-Node: Initialization Functions32071
-Node: Assignment Functions38985
-Node: Combined Initialization and Assignment Functions47639
-Node: Conversion Functions48932
-Node: Basic Arithmetic Functions57484
-Node: Comparison Functions66492
-Node: Special Functions69974
-Node: Input and Output Functions83727
-Node: Formatted Output Functions85650
-Node: Integer Related Functions94769
-Node: Rounding Related Functions100531
-Node: Miscellaneous Functions104145
-Node: Exception Related Functions112712
-Node: Compatibility with MPF119466
-Node: Custom Interface122154
-Node: Internals126399
-Node: API Compatibility127883
-Node: Type and Macro Changes129813
-Node: Added Functions132534
-Node: Changed Functions135477
-Node: Removed Functions139758
-Node: Other Changes140170
-Node: Contributors141699
-Node: References144273
-Node: GNU Free Documentation License146014
-Node: Concept Index168457
-Node: Function and Type Index174376
+Node: Top892
+Node: Copying2243
+Node: Introduction to MPFR4003
+Node: Installing MPFR6092
+Node: Reporting Bugs10914
+Node: MPFR Basics12843
+Node: Headers and Libraries13159
+Node: Nomenclature and Types16143
+Node: MPFR Variable Conventions18147
+Node: Rounding Modes19677
+Ref: ternary value20774
+Node: Floating-Point Values on Special Numbers22727
+Node: Exceptions25703
+Node: Memory Handling28855
+Node: MPFR Interface29987
+Node: Initialization Functions32083
+Node: Assignment Functions38997
+Node: Combined Initialization and Assignment Functions47651
+Node: Conversion Functions48944
+Node: Basic Arithmetic Functions57496
+Node: Comparison Functions66504
+Node: Special Functions69986
+Node: Input and Output Functions83739
+Node: Formatted Output Functions85662
+Node: Integer Related Functions94781
+Node: Rounding Related Functions100543
+Node: Miscellaneous Functions104157
+Node: Exception Related Functions112724
+Node: Compatibility with MPF119478
+Node: Custom Interface122166
+Node: Internals126411
+Node: API Compatibility127895
+Node: Type and Macro Changes129825
+Node: Added Functions132546
+Node: Changed Functions135489
+Node: Removed Functions139770
+Node: Other Changes140182
+Node: Contributors141711
+Node: References144285
+Node: GNU Free Documentation License146026
+Node: Concept Index168469
+Node: Function and Type Index174388
 
 End Tag Table
 
