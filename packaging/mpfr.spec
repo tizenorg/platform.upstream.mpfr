@@ -1,14 +1,14 @@
 %define keepstatic 1
 Name:           mpfr
-Version:        3.1.1
+Version:        3.1.2
 Release:        0
 License:        LGPL-3.0+
 Summary:        The GNU multiple-precision floating-point library
 Url:            http://www.mpfr.org/
-Group:          Development/Libraries/C and C++
+Group:          Base/Libraries
 Source:         mpfr-%{version}.tar.bz2
 Source2:        baselibs.conf
-Source1001: 	mpfr.manifest
+Source1001:     mpfr.manifest
 BuildRequires:  gmp-devel
 
 %description
@@ -24,7 +24,7 @@ mantissa).
 
 %package -n libmpfr
 Summary:        The GNU multiple-precision floating-point shared library
-Group:          Development/Libraries/C and C++
+Group:          Base/Libraries
 
 %description -n libmpfr
 The MPFR library is a C library for multiple-precision floating-point
@@ -33,7 +33,7 @@ based on the GMP multiple-precision library.
 
 %package devel
 Summary:        Development files for the GNU multiple-precision floating-point library
-Group:          Development/Libraries/C and C++
+Group:          Base/Libraries
 Requires:       gmp-devel
 Requires:       libmpfr = %{version}
 
@@ -50,12 +50,12 @@ cp %{SOURCE1001} .
 
 %build
 %configure \
-	--enable-thread-safe \
-	--enable-shared
-make %{?_smp_mflags}
+    --enable-thread-safe \
+    --enable-shared
+%__make %{?_smp_mflags}
 
 %check
-make check %{?_smp_mflags}
+%__make check %{?_smp_mflags}
 
 %install
 %make_install
@@ -80,4 +80,3 @@ make check %{?_smp_mflags}
 %{_libdir}/libmpfr.so
 %{_includedir}/mpf2mpfr.h
 %{_includedir}/mpfr.h
-
