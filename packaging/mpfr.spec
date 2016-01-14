@@ -9,7 +9,7 @@ Group:          Base/Libraries
 Source:         mpfr-%{version}.tar.bz2
 Source2:        baselibs.conf
 Source1001:     mpfr.manifest
-BuildRequires:  gmp-devel
+BuildRequires:  gmp-static
 
 %description
 The MPFR library is a C library for multiple-precision floating-point
